@@ -45,13 +45,18 @@ echo "|  To increment those versions please create a new  |"
 echo "|        git tag with following format vX.X.X       |"
 echo "+===================================================+"
 echo
+echo "To automaticaly push tags and branches add the following to .git/config"
+echo "    push = +refs/heads/*:refs/heads/*"
+echo "    push = +refs/tags/*:refs/tags/*"
+echo "After the url parameter line in origin bock"
+echo
 echo "+===========================================================+"
 echo "|Curr: "`cat ./VERSION`"|"
 echo "|Next: "`scripts/genVersion.php --safeRun --showString`"|"
 echo "+===========================================================+"
 echo
 if promptynY "Ready to begin commiting new version [Y|n]"; then
-    echo "Generating new Version....."
+    echo "!> Generating new Version....."
     scripts/genVersion.php
     echo "========================================================="
     git status
@@ -67,9 +72,9 @@ if promptynY "Ready to begin commiting new version [Y|n]"; then
         echo
         git commit -a
 
-        if promptynN "$ git push --all [y|N]: "; then
+        if promptynN "$ git push [y|N]: "; then
             echo
-            git push --all
+            git push
         fi
 
     fi
