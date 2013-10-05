@@ -51,6 +51,9 @@ echo "|Next: "`scripts/genVersion.php --safeRun --showString`"|"
 echo "+===========================================================+"
 echo
 if promptynY "Ready to begin commiting new version [Y|n]"; then
+    echo "Generating new Version....."
+    scripts/genVersion.php
+    echo "========================================================="
     git status
 
     if promptynY "$ git add . [Y|n]: "; then
