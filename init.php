@@ -22,7 +22,6 @@ define('HZ_CONTROLER_ACTION_DEFAULT_FALLBACK', 'default'); //Name of controler's
 **************/
 define('MONGO_URI', 'mongodb://localhost:27017/hzarcade');
 
-    
 
 
 /** Dependency Loader **/
