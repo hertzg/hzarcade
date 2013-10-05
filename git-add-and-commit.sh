@@ -72,7 +72,7 @@ if promptynY "Ready to begin commiting new version [Y|n]"; then
         echo
         git commit -a
 
-        if promptynN "$ git push [y|N]: "; then
+        if promptyn "$ git push [y|n]: "; then
             echo
             git push
         fi
