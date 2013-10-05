@@ -2,8 +2,6 @@
 /**************
 #     Core    #
 **************/
-//                 M.m.s.c      (M = Major, m = minor, s = state, c = commit) (State: 0 = alpha, 1 = beta, 2 = release, 3 = final)
-define('VERSION', '0.0.0');
 define('DIR_ROOT', __DIR__);
 define('DIR_LIB', DIR_ROOT.'/lib');
 define('DIR_PAGES', DIR_ROOT.'/pages');
@@ -24,7 +22,7 @@ define('HZ_CONTROLER_ACTION_DEFAULT_FALLBACK', 'default'); //Name of controler's
 **************/
 define('MONGO_URI', 'mongodb://localhost:27017/hzarcade');
 
-
+    
 
 
 /** Dependency Loader **/

@@ -1,8 +1,16 @@
 #!/usr/bin/php
 <?php
+$cwd = __DIR__;
+$jsonPath = $cwd."/../version.json";
+$stringPath = $cwd."/../VERSION";
+
+$safeRun = isset($argv[1]);
+$showString = isset($argv[2]) ? true : true;
+$showJson = isset($argv[3]) ? true : false;
+
 $versionCommand = "git describe --long --abbrev=40 --tags";
 
-$oldVersionJson = json_decode(file_get_contents("../version.json"), true);
+$oldVersionJson = json_decode(file_get_contents($jsonPath), true);
 $inc = isset($oldVersionJson["incr"]) ? $oldVersionJson['incr'] : 1;
 
 $response = "";
@@ -12,9 +20,20 @@ $newVersion = $response[0];
 $newVersionJson = parse($newVersion, $inc);
 $newVersion .= "-".($inc+1);
 
-file_put_contents("../VERSION", $newVersion);
-file_put_contents("../version.json", json_encode($newVersionJson));
-echo $newVersion."\n";
+if(!$safeRun) {
+    file_put_contents($stringPath, $newVersion);
+    file_put_contents($jsonPath, json_encode($newVersionJson));
+    echo $newVersion."\n";
+} else {
+    if($showString) {
+        echo $newVersion."\n";
+    }
+
+    if($showJson) {
+        echo json_encode($newVersionJson)."\n";
+    }
+
+}
 
 function parse($str, $inc) {
     $str = substr($str, 1);

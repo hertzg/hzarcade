@@ -1,3 +1,4 @@
+#!/bin/bash
 promptyn () {
     while true; do
         read -p "$1 " -n 1 yn
@@ -34,21 +35,37 @@ promptynN () {
     done
 }
 
+echo "+===================================================+"
+echo "| This script is used for version control and easy  |"
+echo "| git source management. This script will increment |"
+echo "|  version incr number automatically but will not   |"
+echo "|    increment major, minor or revision numbers.    |"
+echo "|                                                   |"
+echo "|  To increment those versions please create a new  |"
+echo "|        git tag with following format vX.X.X       |"
+echo "+===================================================+"
+echo
+echo "+===========================================================+"
+echo "|Curr: "`cat ./VERSION`"|"
+echo "|Next: "`scripts/genVersion.php --safeRun --showString`"|"
+echo "+===========================================================+"
+echo
+if promptynY "Ready to begin commiting new version [Y|n]"; then
+    git status
 
-git status
-
-if promptynY "[GAAC] git add . [Y|n]: "; then
-    echo
-    git add .
-fi
-
-if promptynY "[GAAC] git commit -a [Y|n]: "; then
-    echo
-    git commit -a
-
-    if promptynN "[GAAC] git push [y|N]: "; then
+    if promptynY "$ git add . [Y|n]: "; then
         echo
-        git push
+        git add .
     fi
 
+    if promptynY "$ git commit -a [Y|n]: "; then
+        echo
+        git commit -a
+
+        if promptynN "$ git push [y|N]: "; then
+            echo
+            git push
+        fi
+
+    fi
 fi
