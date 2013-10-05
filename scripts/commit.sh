@@ -10,6 +10,6 @@ else
 fi
 
 
-function commit () {
+function commit {
     echo "Commiting"
 }
