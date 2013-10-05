@@ -4,6 +4,8 @@ $cwd = __DIR__;
 $jsonPath = $cwd."/../version.json";
 $stringPath = $cwd."/../VERSION";
 
+
+//TODO: Rewrite this crap
 $safeRun = isset($argv[1]);
 $showString = isset($argv[2]) ? true : true;
 $showJson = isset($argv[3]) ? true : false;
