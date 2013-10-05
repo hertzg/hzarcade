@@ -27,3 +27,6 @@ define('MONGO_URI', 'mongodb://localhost:27017/hzarcade');
 /** Dependency Loader **/
 require_once DIR_LIB.'/hz.static.php';
 require_once DIR_LIB.'/io.static.php';
+require_once DIR_LIB.'/loader.static.php';
+
+require_once DIR_LIB.'/ifaces/iControler.interface.php';
