@@ -59,6 +59,8 @@ if promptynY "Ready to begin commiting new version [Y|n]"; then
     if promptynY "$ git add . [Y|n]: "; then
         echo
         git add .
+        echo "========================================================="
+        git status
     fi
 
     if promptynY "$ git commit -a [Y|n]: "; then
