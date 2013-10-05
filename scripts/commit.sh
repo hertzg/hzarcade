@@ -1,4 +1,7 @@
 #!/bin/bash
+function commit {
+    echo "Commiting"
+}
 
 STATUS_OUTPUT="$(git status -s)"
 STATUS_OUTPUT_LENGTH=`expr length "$STATUS_OUTPUT"`
@@ -9,7 +12,3 @@ else
     echo "There are some uncommited changes"
 fi
 
-
-function commit {
-    echo "Commiting"
-}
