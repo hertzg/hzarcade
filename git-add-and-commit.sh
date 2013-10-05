@@ -11,21 +11,20 @@ promptyn () {
 }
 
 
-if promptyn "[GAAC] Ready to begin [y|n]"; then
+git status
 
-    git status
+if promptyn "[GAAC] git add . [y|n]"; then
+    echo
+    git add .
+fi
 
-    if promptyn "[GAAC] git add . [y|n]"; then
-        git add .
-    fi
+if promptyn "[GAAC] git commit -a [y|n]"; then
+    echo
+    git commit -a
 
-    if promptyn "[GAAC] git commit -a [y|n]"; then
-        git commit -a
-
-        if promptyn "[GAAC] git push [yn]"; then
-            git push
-        fi
-
+    if promptyn "[GAAC] git push [yn]"; then
+        echo
+        git push
     fi
 
 fi
