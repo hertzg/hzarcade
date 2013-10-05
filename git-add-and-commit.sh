@@ -67,9 +67,9 @@ if promptynY "Ready to begin commiting new version [Y|n]"; then
         echo
         git commit -a
 
-        if promptynN "$ git push --all --tags [y|N]: "; then
+        if promptynN "$ git push --all [y|N]: "; then
             echo
-            git push --all --tags
+            git push --all
         fi
 
     fi
