@@ -1,0 +1,37 @@
+header.header {
+    background: #121212;
+    height: 80px;
+}
+
+header.header img.logo {
+    margin: 20px 0 0 43px;
+}
+
+nav.navigation {
+    height: 36px;
+    background: #404040;
+    padding: 0 0 0 38px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+nav.navigation a.navItem,
+nav.navigation a.navItem:visited {
+    font-size: 17px;
+    color: #fff;
+    text-decoration: none;
+    float: left;
+    line-height: 36px;
+    padding: 0 27px;
+    
+}
+
+nav.navigation a.navItem:hover,
+nav.navigation a.navItem.current {
+    background: #141414;
+}
+
+.mainContentWrapper {
+    width: 940px;
+    margin: auto;
+}

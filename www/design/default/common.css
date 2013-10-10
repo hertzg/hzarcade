@@ -1,0 +1,15 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Verdana, Tahoma;
+    color: dfdfdf;
+    font-size: 12px;
+}
+
+* {
+    transition: all .5s;
+}
