@@ -12,11 +12,10 @@ abstract class IO {
         return self::httpArgCheckFallback($_REQUEST, $key, $default);
     }
 
-    private static function httpArgCheckFallback($scope, $key, $default = null) {
-        if(isset($_GET[$key]) || !empty($_GET[$key])) {
-            return $_GET[$key];
+    private static function httpArgCheckFallback(&$scope, $key, $default = null) {
+        if(isset($scope[$key]) || !empty($scope[$key])) {
+            return $scope[$key];
         }
         return $default;
     }
-    
 }
